@@ -63,23 +63,6 @@ struct ActionsListView: View {
                 }
             }
             
-            Section {
-                Link(destination: URL.applicationDirectory) {
-                    Label("Share", systemImage: "square.and.arrow.up")
-                        .imageScale(.small)
-                        .font(.footnote.bold())
-                        .foregroundStyle(Color.secondary)
-                        .padding(.vertical, 7)
-                        .padding(.horizontal, 17)
-                        .background(Color.listRow)
-                        .clipShape(.capsule)
-                        .labelStyle(.titleAndIcon)
-                }
-                .frame(maxWidth: .infinity)
-                .listRowBackground(Color.clear)
-                .buttonStyle(.borderless)
-            }
-            
             //            Button(action: {  }) {
             //
             //            }

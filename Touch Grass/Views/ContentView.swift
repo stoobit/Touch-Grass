@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @AppStorage("Step Goal") var stepGoal: Double = 10000
     @State var currentSteps: Double = 6000
-    
+
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
@@ -31,9 +31,21 @@ struct ContentView: View {
                 .background(alignment: .bottom) {
                     BackgroundView()
                 }
-                
+
                 ActionsListView(current: currentSteps)
                     .frame(maxHeight: .infinity)
+                    .overlay(alignment: .bottom) {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                            .imageScale(.small)
+                            .font(.footnote.bold())
+                            .foregroundStyle(Color.secondary)
+                            .padding(.vertical, 7)
+                            .padding(.horizontal, 17)
+                            .background(Color.primary.opacity(0.1))
+                            .background(.listRow)
+                            .clipShape(.capsule)
+                            .labelStyle(.titleAndIcon)
+                    }
             }
             .background(Color(.systemGroupedBackground))
             .navigationBarTitleDisplayMode(.inline)
