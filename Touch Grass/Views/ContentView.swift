@@ -35,16 +35,18 @@ struct ContentView: View {
                 ActionsListView(current: currentSteps)
                     .frame(maxHeight: .infinity)
                     .overlay(alignment: .bottom) {
-                        Label("Share", systemImage: "square.and.arrow.up")
-                            .imageScale(.small)
-                            .font(.footnote.bold())
-                            .foregroundStyle(Color.secondary)
-                            .padding(.vertical, 7)
-                            .padding(.horizontal, 17)
-                            .background(Color.primary.opacity(0.1))
-                            .background(.listRow)
-                            .clipShape(.capsule)
-                            .labelStyle(.titleAndIcon)
+                        ShareLink(item: URL(string: "https://stoobit.com")!) {
+                            Label("Share", systemImage: "square.and.arrow.up")
+                                .imageScale(.small)
+                                .font(.footnote.bold())
+                                .foregroundStyle(Color.secondary)
+                                .padding(.vertical, 7)
+                                .padding(.horizontal, 17)
+                                .background(Color.primary.opacity(0.1))
+                                .background(.listRow)
+                                .clipShape(.capsule)
+                                .labelStyle(.titleAndIcon)
+                        }
                     }
             }
             .background(Color(.systemGroupedBackground))
