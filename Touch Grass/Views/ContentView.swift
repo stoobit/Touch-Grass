@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("isAppUnlocked") var isAppUnlocked: Bool = false
     @AppStorage("Step Goal") var stepGoal: Double = 10000
+    
     @State var currentSteps: Double = 6000
 
     var body: some View {
@@ -28,37 +30,32 @@ struct ContentView: View {
                     )
                 )
                 .frame(maxWidth: .infinity)
-                .background(alignment: .bottom) {
-                    BackgroundView()
-                }
-
-                ActionsListView(current: currentSteps)
-                    .frame(maxHeight: .infinity)
-                    .overlay(alignment: .bottom) {
-                        ShareLink(item: URL(string: "https://stoobit.com")!) {
-                            Label("Share", systemImage: "square.and.arrow.up")
-                                .imageScale(.small)
-                                .font(.footnote.bold())
-                                .foregroundStyle(Color.secondary)
-                                .padding(.vertical, 7)
-                                .padding(.horizontal, 17)
-                                .background(Color.primary.opacity(0.1))
-                                .background(.listRow)
-                                .clipShape(.capsule)
-                                .labelStyle(.titleAndIcon)
-                        }
-                    }
+                
+                AboutView()
+                   
+                Label("Settings", systemImage: "gearshape.fill")
+                    .imageScale(.medium)
+                    .font(.footnote.bold())
+                    .foregroundStyle(Color.white)
+                    .padding(.vertical, 7)
+                    .padding(.horizontal, 12)
+                    .background(.thinMaterial)
+                    .clipShape(.capsule)
+                    .labelStyle(.titleAndIcon)
+                    .padding(.top)
             }
-            .background(Color(.systemGroupedBackground))
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                Text("")
-            }
+            .frame(
+                maxWidth: .infinity,
+                maxHeight: .infinity
+            )
+            .background(BackgroundView())
+            .toolbar { Text("") }
         }
     }
 }
 
 #Preview {
     ContentView()
-        .preferredColorScheme(.light)
+        .preferredColorScheme(.dark)
 }

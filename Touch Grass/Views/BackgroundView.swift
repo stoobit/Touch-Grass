@@ -19,7 +19,7 @@ struct BackgroundView: View {
             Image(.background)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .blur(radius: 3)
+                .blur(radius: 5)
                 .scaleEffect(1.05)
                 .clipped()
             
@@ -32,6 +32,7 @@ struct BackgroundView: View {
                     )
             }
         }
+        .ignoresSafeArea(.all)
     }
 }
 

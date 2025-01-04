@@ -63,18 +63,6 @@ struct ActionsListView: View {
                 }
             }
             
-            //            Button(action: {  }) {
-            //
-            //            }
-            //            .matchedTransitionSource(id: "zoom", in: namespace)
-            //            .navigationDestination(isPresented: <#T##Binding<Bool>#>) {
-            //                Text("")
-            //                    .navigationTransition(.zoom(
-            //                        sourceID: "zoom",
-            //                        in: namespace
-            //                    ))
-            //            }
-            
         }
         .environment(\.defaultMinListRowHeight, 53)
         .scrollIndicators(.hidden)
